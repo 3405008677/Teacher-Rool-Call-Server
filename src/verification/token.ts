@@ -18,7 +18,7 @@ class Token {
     if (!token) return false;
     try {
       if (jwt.verify(token, this.PrivateKey)) {
-        return true;
+        return this.PrivateKey;
       } else {
         return false;
       }
