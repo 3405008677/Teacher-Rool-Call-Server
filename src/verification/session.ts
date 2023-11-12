@@ -1,4 +1,4 @@
-import session from "express-session";
+import session, { SessionData } from "express-session";
 
 class Session {
   private PrivateKey: string;

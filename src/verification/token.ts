@@ -16,14 +16,10 @@ class Token {
   // 验证token
   verifyToken(token: string) {
     if (!token) return false;
-    try {
-      if (jwt.verify(token, this.PrivateKey)) {
-        return this.PrivateKey;
-      } else {
-        return false;
-      }
-    } catch (err) {
-      return false;
+
+    let verify = jwt.verify(token, this.PrivateKey) as jwt.JwtPayload;
+    if (verify) {
+      return verify.payload;
     }
   }
 }

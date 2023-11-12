@@ -3,10 +3,6 @@ import path from "path";
 import routerUser from "./user/";
 
 const routerCreate = (app: Express) => {
-  // 管理员路由
-  app.use("/", (res, req) => {
-    req.send("你好！");
-  });
   // 用户路由
   app.use("/user", routerUser);
   app.use("/page", express.static(path.join(__dirname, "public")));
@@ -15,7 +11,7 @@ const routerCreate = (app: Express) => {
     res.status(404).send({
       data: null,
       meta: {
-        message: "找不到对于录音",
+        message: "找不到对于请求!",
         status: 404,
       },
       success: false,
